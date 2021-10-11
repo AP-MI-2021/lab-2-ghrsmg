@@ -58,6 +58,9 @@ def test_get_leap_years():
 
 
 def get_perfect_squares(start, end):
+    '''
+    functia trece prin intervalul dat, salveaza in lista patratele perfecte iar apoi le returneaza
+    '''
     lista=[]
     for i in range(1, end + 1, 1):
         if i * i <= end and i * i >= start:
