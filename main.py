@@ -2,6 +2,13 @@
 
 
 def get_n_choose_k(n, k):
+    '''
+    functia calculeaza combinari de n luate cate k
+    nfact memoreaza n factorial
+    kfact memoreaza k factorial
+    mfact memoreaza n-k factorial
+    functia returneaza rezultatul dupa formula
+    '''
     nfact = 1
     kfact = 1
     mfact = 1
@@ -15,7 +22,7 @@ def get_n_choose_k(n, k):
     while (m):
         mfact = mfact * m
         m = m - 1
-    print(nfact // (kfact * mfact))
+    return(nfact // (kfact * mfact))
 
 def test_get_n_choose_k():
     '''Functia test '''
@@ -27,33 +34,41 @@ def test_get_n_choose_k():
 
 
 def get_leap_years(y1, y2):
+    '''
+    y1 si y2 sunt anii pe care trebuie sa ii introducem
+    functia trece cu ajutorul unui for prin toti anii iar apoi salveaza in lista si returneaza anii bisecti
+    '''
+    lista = []
     if y1 > y2:
         x = y1
         y1 = y2
         y2 = x
     for i in range(y1 - 1, y2 + 1, 1):
         if i % 4 == 0:
-            print(i)
+            lista.append(i)
+    return lista
 
 
 def test_get_leap_years():
-    assert get_leap_years(2010, 2012) == 2012
-    assert get_leap_years(2016, 2017) == 2016
-    assert get_leap_years(2020, 2022) == 2020
+    assert get_leap_years(2010, 2017) == [2012, 2016]
+    assert get_leap_years(2016, 2021) == [2016, 2020]
+    assert get_leap_years(2020, 2024) == [2020, 2024]
 
     '''problema 12'''
 
 
 def get_perfect_squares(start, end):
+    lista=[]
     for i in range(1, end + 1, 1):
         if i * i <= end and i * i >= start:
-            print(i)
+            lista.append(i)
+    return lista
 
 
 def test_get_perfect_squares():
-    assert get_perfect_squares(2, 4) == 2
-    assert get_perfect_squares(5, 9) == 3
-    assert get_perfect_squares(10, 16) == 4
+    assert get_perfect_squares(2, 4) == [2]
+    assert get_perfect_squares(5, 9) == [3]
+    assert get_perfect_squares(10, 16) == [4]
 
 
 def main():
